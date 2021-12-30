@@ -1,0 +1,36 @@
+{
+    "name": "game-helper",
+    "version": "0.0.1",
+    "description": "The package template for getting started.",
+    "author": "JL",
+    "main": "main.js",
+    "main-menu": {
+        "i18n:MAIN_MENU.package.title/game-helper/open": {
+            "message": "game-helper:open"
+        },
+        "i18n:MAIN_MENU.package.title/game-helper/reload": {
+            "message": "game-helper:reload"
+        }
+    },
+    "runtime-resource": {
+        "path": "component",
+        "name": "component"
+    },
+    "reload": {
+        "ignore": ["component/**/*"]
+    },
+    "profiles": {
+        "local": {
+            "path": "assets/resources/Lang",
+            "lang": "zh",
+            "fileName": "StringList.json"
+        }
+    },
+    "panel": {
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "game-helper",
+        "width": 400,
+        "height": 300
+    }
+}

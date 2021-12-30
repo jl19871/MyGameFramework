@@ -1,0 +1,38 @@
+{
+    "name": "game-template",
+    "version": "1.0.0",
+    "description": " Cocos Creator 扩展组件 inspector、多语言预览等",
+    "dependencies": {
+        "bluebird": "^3.7.2",
+        "lodash": "^4.17.21",
+        "whatwg-fetch": "^3.5.0"
+    },
+    "devDependencies": {
+        "@types/bluebird": "^3.5.33",
+        "@types/lodash": "^4.14.165",
+        "@typescript-eslint/eslint-plugin": "^4.8.2",
+        "@typescript-eslint/parser": "^4.8.2",
+        "eslint": "^8.5.0",
+        "eslint-plugin-eslint-plugin": "^4.1.0",
+        "typescript": "^4.1.2"
+    },
+    "scripts": {
+        "tsc-check": "tsc --noEmit",
+        "lint": "eslint $(git diff --cached --name-only | grep \\.ts$)",
+        "lint-fix": "eslint --fix $(git diff --cached --name-only | grep \\.ts$)"
+    },
+    "pre-commit": [
+        "tsc-check",
+        "lint"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yanjifa/game-template.git"
+    },
+    "author": "yanjifa",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/yanjifa/game-template/issues"
+    },
+    "homepage": "https://github.com/yanjifa/game-template#readme"
+}
