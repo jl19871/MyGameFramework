@@ -1,2 +1,2 @@
 # MyGameFramework
-我的游戏框架
+我的cocoscreator游戏框架
