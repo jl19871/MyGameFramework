@@ -1,5 +1,4 @@
 import { ENotifyType } from "../data/const/NotifyConst";
-import GameDataCenter from "../data/GameDataCenter";
 import Game from "../Game";
 
 /*
@@ -28,13 +27,13 @@ export default class LangRichText extends cc.RichText {
     }
 
     protected onLoad() {
-        // Game.NotifyMgr.on(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
+        Game.NotifyManager.on(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
         this.updateString();
 
     }
 
     protected onDestroy() {
-        // Game.NotifyMgr.off(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
+        Game.NotifyManager.off(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
         super.onDestroy();
     }
 
@@ -54,7 +53,7 @@ export default class LangRichText extends cc.RichText {
                 this.string = "" + str;
             });
         } else {
-            const str = "" + GameDataCenter.lang.getLangStr(this._tid);
+            const str = "" + Game.DataManager.lang.getLangStr(this._tid);
             this.string !== str && (this.string = str);
         }
     }

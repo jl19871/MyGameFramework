@@ -4,7 +4,6 @@
  */
 
 import { ENotifyType } from "../data/const/NotifyConst";
-import GameDataCenter from "../data/GameDataCenter";
 import Game from "../Game";
 
 const { ccclass, property, executeInEditMode, menu, inspector } = cc._decorator;
@@ -40,12 +39,12 @@ export default class LangLabel extends cc.Label {
 
     protected onLoad() {
         super.onLoad();
-        Game.NotifyMgr.on(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
+        Game.NotifyManager.on(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
         this.updateString();
     }
 
     protected onDestroy() {
-        Game.NotifyMgr.off(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
+        Game.NotifyManager.off(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
         super.onDestroy();
     }
 
@@ -80,10 +79,10 @@ export default class LangLabel extends cc.Label {
             });
         } else {
             // 获取多语言文本
-            this.string = "" + GameDataCenter.lang.getLangStr(this._tid);
+            this.string = "" + Game.DataManager.lang.getLangStr(this._tid);
             // 如果使用了 bmfont, 切换对应语言的 bmfont
             if (!this.useSystemFont && this._bmfontUrl) {
-                const lang = GameDataCenter.lang.getCurLang();
+                const lang = Game.DataManager.lang.curLang;
                 this.font = cc.resources.get<cc.BitmapFont>(this._bmfontUrl.replace("${lang}", lang), cc.BitmapFont);
             }
         }

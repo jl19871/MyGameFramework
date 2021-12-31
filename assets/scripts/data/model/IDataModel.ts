@@ -4,9 +4,7 @@
  * 数据缓存器
  */
 
-import BaseSingleton from "../../base/BaseSingeton";
-
-export default class IDataModel extends BaseSingleton {
+export default class IDataModel {
     protected modelName: string = 'default';
 
     /**
@@ -15,7 +13,6 @@ export default class IDataModel extends BaseSingleton {
     private _dLocalData = {};
 
     constructor(modelName = 'default') {
-        super();
         this.modelName = modelName;
         this.LoadStorage();
     }

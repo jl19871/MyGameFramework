@@ -1,3 +1,4 @@
+import { Log } from "../util/Log";
 import CmdParser from "./CmdParser";
 import { ISocket, SocketState, WbSocket, WxSocket } from "./Socket";
 
@@ -129,8 +130,9 @@ export class SocketDelegate implements ISocketDelegate {
         // parcal.destination = 0x01e70000;
 
         // var _bytes = yxy.apple.protobuf.Parcal.encode(parcal).finish();
-        var arrayBuffer = _bytes.slice().buffer;
+        // var arrayBuffer = _bytes.slice().buffer;
 
-        return arrayBuffer
+        // return arrayBuffer
+        return null;
     }
 }

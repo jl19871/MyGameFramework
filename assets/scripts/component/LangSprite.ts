@@ -1,5 +1,4 @@
 import { ENotifyType } from "../data/const/NotifyConst";
-import GameDataCenter from "../data/GameDataCenter";
 import Game from "../Game";
 
 /*
@@ -25,12 +24,12 @@ export default class LangSprite extends cc.Sprite {
     }
 
     protected onLoad() {
-        // Game.NotifyMgr.on(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
+        Game.NotifyManager.on(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
         this.updateSpriteFrame();
     }
 
     protected onDestroy() {
-        // Game.NotifyMgr.off(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
+        Game.NotifyManager.off(ENotifyType.LANG_CHANGE, this.onLanguageChanged, this);
         super.onDestroy();
     }
 
@@ -59,7 +58,7 @@ export default class LangSprite extends cc.Sprite {
             return;
         }
         if (this._spriteUrl) {
-            const lang = GameDataCenter.lang.getCurLang();
+            const lang = Game.DataManager.lang.curLang;
             this.spriteFrame = cc.resources.get<cc.SpriteFrame>(this._spriteUrl.replace("${lang}", lang), cc.SpriteFrame);
         }
     }

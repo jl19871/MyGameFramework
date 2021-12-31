@@ -4,7 +4,6 @@
  * 多语言数据管理器
  */
 
-import BaseSingleton from "../../../base/BaseSingeton";
 import Game from "../../../Game";
 import { ENotifyType } from "../../const/NotifyConst";
 import IDataModel from "../IDataModel";
@@ -53,7 +52,7 @@ export default class LangModel extends IDataModel {
    * @memberof LocalizedUtil
    */
   private async loadLanguageDir(lang: string) {
-    await Game.AssetMgr.loadDir(`language/${lang}`);
+    await Game.AssetManager.loadDir(`language/${lang}`);
     const cfgPath = `language/${lang}/StringList`;
     this.langJson = cc.resources.get<cc.JsonAsset>(cfgPath, cc.JsonAsset).json;
   }
@@ -67,7 +66,7 @@ export default class LangModel extends IDataModel {
    * @memberof LangModel
    */
   private async releaseLanguageDir(lang: string) {
-    Game.AssetMgr.releaseDir(`language/${lang}`);
+    Game.AssetManager.releaseDir(`language/${lang}`);
   }
 
 
@@ -85,13 +84,13 @@ export default class LangModel extends IDataModel {
     const orginLang = this._curLang;
     this._curLang = lang;
 
-    Game.NotifyMgr.emit(ENotifyType.BLOCK_INPUT_SHOW, "changeLanguage");
+    Game.NotifyManager.emit(ENotifyType.BLOCK_INPUT_SHOW, "changeLanguage");
     this.Set('curLang', this._curLang);
     this.Save();
     await this.loadLanguageDir(lang);
-    Game.NotifyMgr.emit(ENotifyType.LANG_CHANGE);
+    Game.NotifyManager.emit(ENotifyType.LANG_CHANGE);
     this.releaseLanguageDir(orginLang);
-    Game.NotifyMgr.emit(ENotifyType.BLOCK_INPUT_HIDE, "changeLanguage");
+    Game.NotifyManager.emit(ENotifyType.BLOCK_INPUT_HIDE, "changeLanguage");
   }
 
   /**

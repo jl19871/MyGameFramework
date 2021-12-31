@@ -72,16 +72,16 @@ module.exports = {
     hookMenuFunc(template) {
         const firstMenu = template[0];
         const subMenu = firstMenu.submenu;
-        Editor.success("11111");
+        // Editor.success("11111");
         if (subMenu && firstMenu.label === filterData[0] && subMenu[0].label === filterData[1]) {
-            Editor.success("22222");
+            // Editor.success("22222");
             const parentId = subMenu[0].params[2];
             const injectMenu = {
                 label: Editor.T("game-helper.createcomp"),
                 submenu: [],
             };
             this.localPrefabCfgs.forEach((o) => {
-                Editor.success(injectMenu.submenu);
+                // Editor.success(injectMenu.submenu);
                 injectMenu.submenu.push({
                     label: o.name,
                     click: () => {

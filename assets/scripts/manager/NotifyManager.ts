@@ -4,11 +4,11 @@
  */
 
 import * as _ from "lodash";
-import BaseSingleton from "../base/BaseSingeton";
 import { ENotifyType } from "../data/const/NotifyConst";
 
 
 type NotifyFunc = (userData: unknown, eNotifyType?: ENotifyType) => void;
+
 
 interface IObserver {
   func: NotifyFunc;
@@ -21,13 +21,12 @@ interface IObserver {
  * @export
  * @class NotifyManager
  */
-export default class NotifyManager extends BaseSingleton {
+export default class NotifyManager {
 
   private observerMap: Map<ENotifyType, IObserver[]> = new Map();
 
-  private constructor() {
-    super();
-    // 检查 EENotifyType 拼写, 并初始化 observerMap
+  constructor() {
+    // 检查 ENotifyType 拼写, 并初始化 observerMap
     for (const key in ENotifyType) {
       if (Object.prototype.hasOwnProperty.call(ENotifyType, key)) {
         const notifyName = ENotifyType[key];

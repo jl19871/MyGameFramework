@@ -1,5 +1,4 @@
 import Bluebird = require("bluebird");
-import BaseSingleton from "../base/BaseSingeton";
 
 /**
  * 资源管理器, 加载目录支持引用计数, 注意不可父子目录混用
@@ -7,7 +6,7 @@ import BaseSingleton from "../base/BaseSingeton";
  * @export
  * @class AssetManager
  */
-export default class AssetManager extends BaseSingleton {
+export default class AssetManager {
 
   private loadedResDirMap: Map<string, number> = new Map();
 
