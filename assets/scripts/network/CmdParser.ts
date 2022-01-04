@@ -3,29 +3,29 @@
  * @Date: 2021-10-11 10:47:01
  */
 class CmdObject {
-  _cmd = null;
-  _target = null;
-  _callBack = null;
+  private _cmd: any = null;
+  private _target: unknown = null;
+  private _callBack: Function = null;
 
-  constructor(_cmd: any, _target: any, _cb: Function) {
+  constructor(_cmd: any, _target: unknown, _cb: Function) {
     this._target = _target;
     this._callBack = _cb;
     this._cmd = _cmd;
   }
 
-  getTarget() {
+  public getTarget(): unknown {
     return this._target;
   }
 
-  getCallBack() {
+  public getCallBack(): Function {
     return this._callBack;
   }
 
-  getCmd() {
+  public getCmd(): any {
     return this._cmd;
   }
 
-  excute(data: any, cmd: any) {
+  public excute(data: any, cmd: any) {
     if (this._callBack) {
       if (this._target) {
         this._callBack.call(this._target, data, cmd);
@@ -37,9 +37,9 @@ class CmdObject {
 }
 
 class CmdParser {
-  _commands = []; //命令对象缓存
+  private _commands = []; //命令对象缓存
 
-  addListener(cmd, target, callback, force?) {
+  public addListener(cmd: any, target: unknown, callback: Function, force?: boolean) {
     if (force) {
       if (this.cmdIsExisted(cmd, target)) {
         this.removeListenerByCmdTarget(cmd, target);
@@ -58,7 +58,7 @@ class CmdParser {
     this._commands.push(cmdObj);
   }
 
-  updateListener(cmd, callback, target) {
+  public updateListener(cmd: any, callback: Function, target: unknown) {
     for (let i = 0; i < this._commands.length; i++) {
       let cmdObj = this._commands[i];
       if (!cmdObj)
@@ -77,12 +77,12 @@ class CmdParser {
     this._commands.push(cmdObj);
   }
 
-  removeListenerByCmdTarget(cmd, target) {
+  public removeListenerByCmdTarget(cmd: any, target: unknown) {
     for (let i = 0; i < this._commands.length; i++) {
       let cmdObj = this._commands[i];
       if (!cmdObj)
         continue;
-      if (cmdObj.getCmd() == cmd && cmdObj.getTarget() == target) {
+      if (cmdObj.getCmd() === cmd && cmdObj.getTarget() === target) {
         this._commands.splice(i, 1);
         i -= 1;
       }
@@ -90,7 +90,7 @@ class CmdParser {
     }
   }
 
-  cmdIsExisted(cmd, target) {
+  public cmdIsExisted(cmd: any, target: unknown) {
     for (let i = 0; i < this._commands.length; i++) {
       let cmdObj = this._commands[i];
       if (!cmdObj)
@@ -101,7 +101,7 @@ class CmdParser {
     return false;
   }
 
-  removeAllListener(target) {
+  public removeAllListener(target: unknown) {
     for (let i = 0; i < this._commands.length; i++) {
       let cmdObj = this._commands[i];
       if (cmdObj.getTarget() == target) {
@@ -111,7 +111,7 @@ class CmdParser {
     }
   }
 
-  parseMsg(cmd, data) {
+  public parseMsg(cmd: any, data: any) {
     console.log("parseMsg  cmd = " + cmd);
     switch (cmd) {
       // 优先处理一些通用命令
@@ -120,7 +120,7 @@ class CmdParser {
           let cmdObj = this._commands[i];
           if (!cmdObj)
             continue;
-          if (cmdObj.getCmd() == cmd) {
+          if (cmdObj.getCmd() === cmd) {
             cmdObj.excute(data, cmd);
           }
         }
@@ -129,7 +129,7 @@ class CmdParser {
     }
   }
 
-  clear() {
+  public clear() {
     this._commands = [];
   }
 }

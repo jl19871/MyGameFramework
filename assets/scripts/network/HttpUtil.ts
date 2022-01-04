@@ -13,7 +13,7 @@ export interface HttpParams {
 
 export class MyHttpUtil {
   //辅助函数，格式化参数
-  formatParams(data: Object) {
+  static formatParams(data: Object) {
     let arr = [];
     for (let name in data) {
       arr.push(encodeURIComponent(name) + "=" + encodeURIComponent(data[name]));
@@ -63,4 +63,5 @@ export class MyHttpUtil {
       xhr.send(params);
     }
   }
+
 }

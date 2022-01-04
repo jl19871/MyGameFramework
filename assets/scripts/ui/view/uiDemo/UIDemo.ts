@@ -11,7 +11,7 @@ const { ccclass, property } = cc._decorator;
 const VIEW_DATA: IViewData = {
   viewName: EViewName.UI_Demo,
   resDirs: ["uiDemo"],
-  prefabUrl: "Prefab/UI", // ui界面prefab的位置
+  prefabUrl: "Prefab/UI/UITemplate", // ui界面prefab的位置
 };
 
 @ccclass

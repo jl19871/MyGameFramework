@@ -15,6 +15,9 @@ import Game from "../Game";
  */
 export enum EViewName {
   UI_Demo = "UI_Demo", // 创建UI的例子
+  UI_HotUpdate = "UI_HotUpdate", // 热更新
+  UI_Tips = "UI_Tips", // 文本提示
+  UI_Confirm = "UI_Confirm", // 确认板
 }
 
 
