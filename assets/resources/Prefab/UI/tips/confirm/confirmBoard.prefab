@@ -870,7 +870,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_tid": "",
+    "_tid": "TID_LABEL_CANCEL",
     "_bmfontUrl": "",
     "_id": ""
   },
@@ -1228,7 +1228,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 420.1,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -1280,8 +1280,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "确认",
-    "_N$string": "确认",
+    "_string": "TID_LABEL_CONFIRM",
+    "_N$string": "TID_LABEL_CONFIRM",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1296,7 +1296,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_tid": "",
+    "_tid": "TID_LABEL_CONFIRM",
     "_bmfontUrl": "",
     "_id": ""
   },
