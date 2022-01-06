@@ -1,0 +1,22 @@
+{
+  "name": "create-ui-template",
+  "version": "0.0.1",
+  "description": "Create My UI Template.",
+  "author": "JL",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/create-ui-template/create": {
+      "message": "create-ui-template:create"
+    },
+    "i18n:MAIN_MENU.package.title/create-ui-template/path-config": {
+      "message": "create-ui-template:config"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "create-ui-template",
+    "width": 800,
+    "height": 200
+  }
+}

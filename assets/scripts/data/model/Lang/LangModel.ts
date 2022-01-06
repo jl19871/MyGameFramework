@@ -25,7 +25,7 @@ export default class LangModel extends IDataModel {
   // json 资源
   private langJson: Record<string, string> = {};
 
-  private _curLang = ELangType.EN;
+  private _curLang = ELangType.ZH;
 
   constructor() {
     super('LangModel');
@@ -52,8 +52,8 @@ export default class LangModel extends IDataModel {
    * @memberof LocalizedUtil
    */
   private async loadLanguageDir(lang: string) {
-    await Game.AssetManager.loadDir(`language/${lang}`);
-    const cfgPath = `language/${lang}/StringList`;
+    await Game.AssetManager.loadDir(`Lang/${lang}`);
+    const cfgPath = `Lang/${lang}/StringList`;
     this.langJson = cc.resources.get<cc.JsonAsset>(cfgPath, cc.JsonAsset).json;
   }
 
@@ -103,6 +103,9 @@ export default class LangModel extends IDataModel {
   public getLangStr(tid: string): string {
     const [id, ...args] = tid.split(",");
     let str = this.langJson[id];
+    if (str === undefined) {
+      return tid;
+    }
     args.forEach((arg, index) => {
       str = str.replace("${p" + (index + 1) + "}", arg);
     });

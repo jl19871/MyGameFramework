@@ -29,7 +29,10 @@ export default class DataManager {
 
     public async setup() {
         this._lang = this.newModel(LangModel);
+        await this._lang.setup();
+
         this._system = this.newModel(SystemModel);
+        await this._system.setup();
         console.log("DataManager setup");
     }
 

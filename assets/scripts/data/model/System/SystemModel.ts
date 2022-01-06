@@ -23,6 +23,10 @@ export default class SystemModel extends IDataModel {
         this.is_open_sound = this.Get('sound_state', true);
     }
 
+    public async setup() {
+
+    }
+
     setMusicState(state: boolean) {
         this.is_open_music = state;
         this.Set('music_state', this.is_open_music ? 1 : 0);

@@ -1,0 +1,50 @@
+
+import BaseUI from "_TREE../../base/BaseUI";
+import Game from "_TREE../../Game";
+import { EViewName, IViewData } from "_TREE../../manager/UIManager";
+
+const { ccclass, menu, property } = cc._decorator;
+
+//TODO 快速修复错误，会在EViewName中添加对应的UI枚举
+const VIEW_DATA: IViewData = {
+  viewName: EViewName._UINAME,
+  resDirs: ["_MODULE"],
+  prefabUrl: "_PREFABPATH", // ui界面prefab的位置
+};
+
+@ccclass
+@menu("UI/_MODULE/_UINAME")
+export default class _UINAME extends BaseUI {
+
+	//初始化UI
+	public initUI(data: Record<string, unknown>) {
+			
+	}
+
+	//界面显示开始
+	protected onOpenStart() {
+			
+	}
+
+	//界面显示完成
+	protected onOpenEnd() {
+			
+	}
+
+	//界面关闭开始
+	protected onCloseStart() {
+			
+	}
+
+	//界面关闭完成
+	protected onCloseEnd() {
+			
+	}
+
+  public getViewData(): IViewData {
+    return VIEW_DATA;
+  }
+}
+
+// 必须注册UI 加载必要资源使用
+Game.UIManager.registUI(VIEW_DATA, _UINAME);

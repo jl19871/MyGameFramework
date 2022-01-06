@@ -13,12 +13,15 @@ import Game from "../Game";
  * @export
  * @enum {number}
  */
+
+
 export enum EViewName {
-  UI_Demo = "UI_Demo", // 创建UI的例子
-  UI_HotUpdate = "UI_HotUpdate", // 热更新
-  UI_Tips = "UI_Tips", // 文本提示
-  UI_Confirm = "UI_Confirm", // 确认板
+  UI_Demo = "UI_Demo",
+  UI_HotUpdate = "UI_HotUpdate",
+  UI_Tips = "UI_Tips",
+  UI_ConfirmBoard = "UI_ConfirmBoard"
 }
+
 
 
 // ========================================================================================
@@ -101,7 +104,7 @@ export default class UIManager {
    * @returns 
    */
 
-  public async showUI(viewName: EViewName, userData?: Record<string, unknown>) {
+  public async openUI(viewName: EViewName, userData?: Record<string, unknown>) {
     const viewCfg = this.viewDataMap.get(viewName);
     if (!viewCfg) {
       console.warn(`view: ${viewName} not regist`);
@@ -149,7 +152,7 @@ export default class UIManager {
 
     this.createdUIs.push(ui);
     ui.initUI(createData.userData);
-    await ui.showUI();
+    await ui.openUI();
     // 递归创建队列中的 view
     await this.creatUI();
   }
@@ -169,5 +172,14 @@ export default class UIManager {
       console.log(`view: ${viewData.viewName} onFocus`);
     }
     Game.AssetManager.releaseDirs(viewData.resDirs);
+  }
+
+  public showTips(tip: string) {
+    let str = Game.DataManager.lang.getLangStr(tip);
+    this.openUI(EViewName.UI_Tips, { "tip": str });
+  }
+
+  public showDialog(params: Record<string, unknown>) {
+    this.openUI(EViewName.UI_ConfirmBoard, params);
   }
 }

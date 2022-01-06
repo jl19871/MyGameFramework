@@ -4,7 +4,7 @@
  * 游戏统一调动器
  */
 
-import DataManager from "./data/GameDataManager";
+import DataManager from "./data/DataManager";
 import AssetManager from "./manager/AssetManager";
 import AudioManager from "./manager/AudioManager";
 import NotifyManager from "./manager/NotifyManager";

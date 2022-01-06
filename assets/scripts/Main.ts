@@ -84,8 +84,8 @@ export default class Main extends cc.Component {
     // 载入 Home 场景
     await Game.SceneManager.gotoScene({
       sceneName: ESceneName.SCENE_HOTUPDATE,
-      resDirs: ["home"],
-      prefabUrl: "home/prefab/Home",
+      resDirs: [""],
+      prefabUrl: "Prefab/Scene/HotUpdate",
     });
 
     // await Game.SceneManager.gotoScene({

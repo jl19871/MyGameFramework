@@ -1,13 +1,12 @@
 let fs = require('fire-fs');
 let path = require('fire-path');
 
-const package_name = 'ui-creator';
+const package_name = 'create-ui-template';
 
 module.exports = {
     config_data: {},
     my_data: {
-        nodeOutputPath: 'assets/script/data/autoui',
-        uiOutputPath: 'assets/script/logic/ui',
+        uiOutputPath: 'assets/scripts/ui/view',
     },
     initCfg(cb) {
         let cfgPath = this._getPath();
@@ -29,7 +28,6 @@ module.exports = {
         }
     },
     saveCfg(data) {
-        this.my_data.nodeOutputPath = data.nodeOutputPath;
         this.my_data.uiOutputPath = data.uiOutputPath;
         this.config_data[package_name] = this.my_data;
         this._save();

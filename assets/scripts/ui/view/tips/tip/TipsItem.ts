@@ -19,20 +19,12 @@ export class TipsItem extends cc.Component {
         this.ready = false;
         this.tipLabel.string = message;
         this.reset();
-        let action0 = cc.moveTo(0.5, 0, 128);
-        let action1 = cc.fadeIn(0.5);
-        let action2 = cc.spawn(action0, action1);
-        let action3 = cc.delayTime(1);
-        let action4 = cc.fadeOut(0.5);
-        let callback = cc.callFunc(
-            function () {
-                this.ready = true;
-            }
-            , this
-        );
-
-        let action = cc.sequence(action2, action3, action4, callback);
-        this.node.runAction(action);
+        cc.tween(this.node)
+            .to(0.5, { position: cc.v3(0, 75), opacity: 255 })
+            .delay(1)
+            .to(0.5, { position: cc.v3(0, 150), opacity: 0 })
+            .call(() => this.ready = true)
+            .start();
     }
 
     public isReady(): boolean {
@@ -41,6 +33,6 @@ export class TipsItem extends cc.Component {
 
     private reset() {
         this.node.setPosition(0, 0);
-        this.node.opacity = 255;
+        this.node.opacity = 180;
     }
 }

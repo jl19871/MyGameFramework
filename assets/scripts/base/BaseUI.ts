@@ -36,18 +36,18 @@ export default abstract class BaseUI extends cc.Component {
         //
     }
     /**
-     * 子类不要覆盖, 定制动画请重写 runShowAnim
+     * 子类不要覆盖, 定制动画请重写 runOpenAni
      *
      * @protected
      * @param {boolean} [skipAnim=false]
      * @memberof BaseUI
      */
-    public async showUI(skipAnim?: boolean) {
-        this.onShowBegin();
+    public async openUI(skipAnim?: boolean) {
+        this.onOpenStart();
         try {
             Game.NotifyManager.emit(ENotifyType.BLOCK_INPUT_SHOW, `show:${this.getViewData().viewName}`);
-            this.playShowAudio(skipAnim);
-            await this.runShowAnim(skipAnim);
+            this.playOpenAudio(skipAnim);
+            await this.runOpenAni(skipAnim);
             if (this.isFullScreen()) {
                 Game.UIManager.fullScreenViewRefNum += 1;
             }
@@ -57,14 +57,14 @@ export default abstract class BaseUI extends cc.Component {
         } finally {
             Game.NotifyManager.emit(ENotifyType.BLOCK_INPUT_HIDE, `show:${this.getViewData().viewName}`);
         }
-        this.onShowDone();
+        this.onOpenEnd();
     }
 
-    protected onShowBegin() {
+    protected onOpenStart() {
         //
     }
 
-    protected playShowAudio(skipAudio?: boolean) {
+    protected playOpenAudio(skipAudio?: boolean) {
         if (skipAudio) {
             return;
         }
@@ -77,7 +77,7 @@ export default abstract class BaseUI extends cc.Component {
         // Game.AudioManager.playEffect(audioUrl);
     }
 
-    protected async runShowAnim(skipAnim?: boolean): Promise<void> {
+    protected async runOpenAni(skipAnim?: boolean): Promise<void> {
         if (skipAnim) {
             return;
         }
@@ -99,34 +99,34 @@ export default abstract class BaseUI extends cc.Component {
         });
     }
 
-    protected onShowDone() {
+    protected onOpenEnd() {
         //
     }
 
     /**
-     * 子类不要覆盖此函数, 定制动画重写 runHideAnim
+     * 子类不要覆盖此函数, 定制动画重写 runCloseAni
      *
      * @protected
      * @param {boolean} [skipAnim=false]
      * @memberof BaseUI
      */
-    protected async hideUI(skipAnim = false) {
+    protected async closeUI(skipAnim = false) {
         Game.NotifyManager.emit(ENotifyType.BLOCK_INPUT_SHOW, `hide:${this.getViewData().viewName}`);
-        this.onHideBegin();
+        this.onCloseStart();
         if (this.isFullScreen()) {
             Game.UIManager.fullScreenViewRefNum -= 1;
         }
-        await this.runHideAnim(skipAnim);
-        this.onHideDone();
+        await this.runCloseAni(skipAnim);
+        this.onCloseEnd();
         Game.UIManager.destroyUI(this);
         Game.NotifyManager.emit(ENotifyType.BLOCK_INPUT_HIDE, `hide:${this.getViewData().viewName}`);
     }
 
-    protected onHideBegin() {
+    protected onCloseStart() {
         //
     }
 
-    protected async runHideAnim(skipAnim = false) {
+    protected async runCloseAni(skipAnim = false) {
         if (skipAnim) {
             return;
         }
@@ -145,7 +145,7 @@ export default abstract class BaseUI extends cc.Component {
         });
     }
 
-    protected onHideDone() {
+    protected onCloseEnd() {
         //
     }
 
