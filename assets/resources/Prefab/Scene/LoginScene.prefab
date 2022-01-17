@@ -330,7 +330,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 362.36,
+      "width": 204.47,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -382,8 +382,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "TID_LABEL_TIME.1",
-    "_N$string": "TID_LABEL_TIME.1",
+    "_string": "当前时间: 1",
+    "_N$string": "当前时间: 1",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -398,7 +398,7 @@
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
-    "_tid": "TID_LABEL_TIME.1",
+    "_tid": "TID_LABEL_TIME,1",
     "_bmfontUrl": "",
     "_id": ""
   },
@@ -457,7 +457,7 @@
       "ctor": "Float64Array",
       "array": [
         -301.736,
-        0,
+        -159.875,
         0,
         0,
         0,
@@ -880,8 +880,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        220.672,
-        0,
+        340.015,
+        -168.882,
         0,
         0,
         0,

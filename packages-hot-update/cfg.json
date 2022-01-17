@@ -1,0 +1,12 @@
+{
+    "version": "1.0",
+    "serverRootDir": "http://192.168.0.66",
+    "resourceRootDir": "",
+    "genManifestDir": "",
+    "hotAddressArray": [
+        "http://192.168.0.66"
+    ],
+    "buildTime": null,
+    "genTime": null,
+    "genVersion": null
+}
