@@ -22,6 +22,7 @@ export default class LoginScene extends BaseScene {
     private timeLabel: cc.Label = null;
 
     public didEnter() {
+        this.clientTick();
         this.schedule(this.clientTick, 1.0, cc.macro.REPEAT_FOREVER);
     }
 

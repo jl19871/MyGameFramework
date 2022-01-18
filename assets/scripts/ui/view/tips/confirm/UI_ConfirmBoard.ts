@@ -69,6 +69,7 @@ export default class UI_ConfirmBoard extends BaseUI {
 
 
 	protected onOpenStart(): void {
+		this.lab_title.string = this._title;
 		this.lab_content.string = this._content;
 		if (this._onekey) {
 			this.btn_cancel.node.active = false;

@@ -49,7 +49,7 @@ export default class LangModel extends IDataModel {
    *
    * @private
    * @param lang
-   * @memberof LocalizedUtil
+   * @memberof LangModel
    */
   private async loadLanguageDir(lang: string) {
     await Game.AssetManager.loadDir(`Lang/${lang}`);
@@ -98,7 +98,7 @@ export default class LangModel extends IDataModel {
      *
      * @param tid
      * @returns string
-     * @memberof LocalizedUtil
+     * @memberof LangModel
      */
   public getLangStr(tid: string): string {
     const [id, ...args] = tid.split(",");
