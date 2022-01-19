@@ -18,38 +18,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class LoginScene extends BaseScene {
 
-    @property(cc.Label)
-    private timeLabel: cc.Label = null;
-
     public didEnter() {
-        this.clientTick();
-        this.schedule(this.clientTick, 1.0, cc.macro.REPEAT_FOREVER);
-    }
-
-    public async willLeave(userData?: Record<string, unknown>) {
-        this.unschedule(this.clientTick);
-    }
-
-    private clientTick() {
-        const now = new Date();
-        const hour = now.getHours().toString().padStart(2, "0");
-        const minutes = now.getMinutes().toString().padStart(2, "0");
-        const sec = now.getSeconds().toString().padStart(2, "0");
-        this.timeLabel.tid = `TID_LABEL_TIME,${hour}:${minutes}:${sec}`;
-    }
-
-    private showTip() {
-        Game.UIManager.showTips("aaaaaaa");
-    }
-
-    private showDialog() {
-        Game.UIManager.showDialog({
-            oneKey: true,
-            title: "hahahha",
-            content: Game.DataManager.lang.getLangStr("TID_LABEL_HELLO_WORLD"),
-            confirmCb: () => {
-                Game.UIManager.showTips("TID_LABEL_HELLO_WORLD");
-            }
-        })
+        Game.UIManager.openUI(EViewName.UI_DemoList);
     }
 }

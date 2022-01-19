@@ -131,7 +131,7 @@ export default class ListView extends cc.ScrollView {
      * @returns {*}
      * @memberof ListView
      */
-    public animtedDelOneItem(index: number, duration: number, callBack: () => void): void {
+    public animtedDelOneItem(index: number, duration: number = 0.5, callBack: () => void = null): void {
         const delItem = this.getItemById(index);
         if (!delItem) {
             console.error("del item not show");
@@ -168,7 +168,9 @@ export default class ListView extends cc.ScrollView {
         ));
         this.enableScroll = false;
         this.scheduleOnce(() => {
-            callBack();
+            if (callBack) {
+                callBack();
+            }
             this.enableScroll = true;
         }, duration);
     }

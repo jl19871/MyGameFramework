@@ -1,5 +1,9 @@
 /*
  * @Author: JL
+ * @Date: 2021-12-31 18:57:10
+ */
+/*
+ * @Author: JL
  * @Date: 2021-12-31 16:36:40
  */
 import BaseUI from "../base/BaseUI";
@@ -19,7 +23,9 @@ export enum EViewName {
   UI_Demo = "UI_Demo",
   UI_HotUpdate = "UI_HotUpdate",
   UI_Tips = "UI_Tips",
-  UI_ConfirmBoard = "UI_ConfirmBoard"
+  UI_ConfirmBoard = "UI_ConfirmBoard",
+  UI_ListViewDemo = "UI_ListViewDemo",
+  UI_DemoList = "UI_DemoList"
 }
 
 

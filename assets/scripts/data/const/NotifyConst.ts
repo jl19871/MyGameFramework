@@ -28,5 +28,8 @@ export enum ENotifyType {
     BLOCK_INPUT_SHOW = "BLOCK_INPUT_SHOW",   // active block input
     BLOCK_INPUT_HIDE = "BLOCK_INPUT_HIDE",   // disable block input
     SWITCH_SCENE = "SWITCH_SCENE",       // 切换场景
-    CAMEAR_EFFECT = "CAMEAR_EFFECT",      // fbo 特效
+
+
+    // DemoList
+    DEMO_DEL_LISTITEM = "DEMO_DEL_LISTITEM",
 }
